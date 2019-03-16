@@ -1,0 +1,56 @@
+<p-dialog
+[(visible)]="display"
+[responsive]="true"
+[closable]="false"
+[blockScroll]="true"
+[modal]="true"
+[baseZIndex]="10000"
+(onShow)="showDialog()">
+
+<p-header>
+    <h1>{{editando? 'Edição':'Cadastro'}} de Livros</h1>
+  </p-header>
+
+<div class="container" style="height: 310px">
+    <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="form">
+
+    <div class="ui-g">
+      <div class="ui-g-6 ui-fluid">
+        <label>Título</label>
+        <input pInputText type="text" formControlName="titulo" required>
+      </div>
+      <div class="ui-g-6 ui-fluid" formGroupName="autor">
+        <label>Autor</label>
+        <p-dropdown [options]="autores" [filter]="true"
+        placeholder="Selecione o autor" formControlName="id"></p-dropdown>
+      </div>
+      <div class="ui-g-6 ui-fluid">
+        <label>Preço</label>
+        <input pInputText
+        formControlName="preco"
+        currencyMask placeholder="0,00" min="0"
+        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" required/>
+      </div>
+      <div class="ui-g-6 ui-fluid">
+          <label>Peso</label>
+          <div class="ui-inputgroup">
+            <input pInputText
+              formControlName="peso"
+              currencyMask placeholder="0,000" min="0"
+              [options]="{ prefix: '', thousands: '.', decimal: ',', precision: 3 }"/>
+            <span class="ui-inputgroup-addon">kg</span>
+          </div>
+      </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <button pButton type="submit" label="Salvar" [disabled]="form.invalid" style="margin: 5px"></button>
+            <button (click)="novo()" *ngIf="editando"  pButton type="button" label="Novo" style="margin: 5px"></button>
+            <button (click)="cancelar()" pButton type="button" label="Cancelar" style="margin: 5px"></button>
+            <button (click)="remover()" pButton type="button" label="excluir" class="ui-button-danger" *ngIf="editando" style="margin: 5px; float:right"></button>
+        </div>
+    </div>
+  </form>
+  </div>
+</p-dialog>
+

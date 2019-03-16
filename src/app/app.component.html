@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<p-toast></p-toast>
+<router-outlet></router-outlet>
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = ""
+size = "large"
+color = "#3d8df0"
+type = "ball-circus"
+fullScreen = "true"
+>
+<p style="color: white" > Aguarde... </p>
+</ngx-spinner>
+<p-confirmDialog #cd header="Confirmação" icon="pi pi-exclamation-triangle">
+  <p-footer>
+    <button pButton type="button" icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+    <button pButton type="button" icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
+  </p-footer>
+</p-confirmDialog>

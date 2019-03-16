@@ -1,0 +1,14 @@
+.navbar {
+  background-color: black;
+  text-align: right;
+  height: 50px;
+  padding-top: 10px;
+}
+
+.navbar__menu-item {
+  vertical-align: -webkit-baseline-middle;
+  color: #ffffff;
+  margin: 10px;
+  font-size: 1.5em;
+  text-decoration: none;
+}
