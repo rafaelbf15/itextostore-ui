@@ -51,7 +51,7 @@ export class AutoresPesquisaComponent implements OnInit {
     this.autorService.addAutores(this.form.value)
     .then(() => {
     this.carregarAutores();
-    this.messageService.add({severity: 'success', detail: 'Livro cadastrado com sucesso!'});
+    this.messageService.add({severity: 'success', detail: 'Autor cadastrado com sucesso!'});
     this.form.reset();
   })
     .catch((error: any) => this.errorHandlerService.handle(error));
